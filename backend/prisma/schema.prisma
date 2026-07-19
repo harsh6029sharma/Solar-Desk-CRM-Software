@@ -350,18 +350,17 @@ model Opportunity {
   @@index([stage])
 }
 
-
 model SiteSurvey {
   id            String      @id @default(cuid())
   opportunityId String      @unique
   opportunity   Opportunity @relation(fields: [opportunityId], references: [id])
 
   // Solar Specific Technical Details
-  roofType           String?  // RCC slab, Tin shade, Asbestos sheet
+  roofType           String? // RCC slab, Tin shade, Asbestos sheet
   roofAreaSqFt       Decimal? @db.Decimal(10, 2)
   sanctionedLoadKw   Decimal? @db.Decimal(10, 2)
   monthlyBillAverage Decimal? @db.Decimal(12, 2)
-  shadowAnalysis     String?  // Notes on shadow issues
+  shadowAnalysis     String? // Notes on shadow issues
   latitude           Float?
   longitude          Float?
   surveyPhotosUrl    String[] @default([]) // Array for roof images
