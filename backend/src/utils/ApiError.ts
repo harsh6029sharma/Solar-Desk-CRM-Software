@@ -11,11 +11,11 @@ class ApiError extends Error{
         errors:string[] = [],
         stack?:string
     ){
-        super(message),
-        this.statusCode = statusCode,
-        this.data = null,
-        this.message = message,
-        this.success = false,
+        super(message)
+        this.statusCode = statusCode
+        this.data = null
+        this.message = message
+        this.success = false
         this.errors = errors
 
         if(stack){
