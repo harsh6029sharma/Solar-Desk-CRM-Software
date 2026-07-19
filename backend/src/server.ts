@@ -1,11 +1,9 @@
 import app from './app'
-import type { Request,Response } from 'express'
+import appRouter from './routes/index'
 
 const port = process.env.PORT || 7000
 
-app.get("/", (req:Request,res:Response)=>{
-    res.send('hello world')
-})
+app.get("/", appRouter)
 
 app.listen(port, ()=>{
     console.log(`server is listening on port:${port}`)
