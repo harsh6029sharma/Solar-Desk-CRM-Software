@@ -7,4 +7,4 @@ app.get("/", appRouter)
 
 app.listen(port, ()=>{
     console.log(`server is listening on port:${port}`)
-}) 
+})

@@ -1,12 +1,8 @@
-import { Router, type Request,type Response } from "express";
+import { Router } from "express";
+import authRouter from "../modules/auth/auth.routes";
 
-const router = Router()
+const router = Router();
 
-router.get("/", (_req:Request, res:Response)=>{
-    res.json({
-        success:true,
-        message:"Solar CRM API"
-    })
-})
+router.use("/auth", authRouter);
 
-export default router
+export default router;
