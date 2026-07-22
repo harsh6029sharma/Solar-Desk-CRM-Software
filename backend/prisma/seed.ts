@@ -6,6 +6,7 @@ import { seedPermissions } from "./seeds/permission.seed";
 import { seedRolePermissions } from "./seeds/rolePermission.seed";
 import { seedUser } from "./seeds/user.seed";
 import { seedUserRole } from "./seeds/userRole.seed";
+import { seedContact } from "./seeds/seed.contact";
 
 async function main() {
   await seedOrganization();
@@ -19,6 +20,8 @@ async function main() {
   await seedUser();
 
   await seedUserRole();
+
+  await seedContact()
 }
 
 main()

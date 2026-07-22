@@ -41,4 +41,4 @@ router.patch(
 );
 router.delete("/:id", authenticate, authorize("lead:delete"), validate(leadIdParamSchema, "params"), removeLead);
 
-export const leadsRouter = router;
+export default router
