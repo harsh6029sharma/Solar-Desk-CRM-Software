@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authenticate } from "../../middlewares/authenticate";
 import { authorize } from "../../middlewares/authorize";
+import siteSurveyRouter from "../site-survey/site-survey.routes";
 import { validate } from "../../middlewares/validate";
 import {
   createOpportunitySchema,
@@ -58,5 +59,7 @@ router.delete(
   validate(opportunityIdParamSchema, "params"),
   opportunityController.deactivateOpportunity
 );
+
+router.use("/:opportunityId/survey", siteSurveyRouter);
 
 export default router;

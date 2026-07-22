@@ -2,26 +2,27 @@ import type { Request, Response, NextFunction } from "express";
 import type { ZodType } from "zod";
 import { ApiError } from "../utils/ApiError";
 
-type ValidationSource = "body" | "query" | "params";
-
 export const validate =
-  <T extends ZodType>(schema: T, source: ValidationSource = "body") =>
+  (schema: ZodType, source: "body" | "query" | "params" = "body") =>
   (req: Request, _res: Response, next: NextFunction) => {
     const result = schema.safeParse(req[source]);
 
     if (!result.success) {
-      const errors = result.error.issues.map(
-        (issue) => `${issue.path.join(".")}: ${issue.message}`
+      throw new ApiError(
+        400,
+        "Validation failed",
+        result.error.issues.map((issue) => issue.message)
       );
-      throw new ApiError(422, "Validation failed", errors);
     }
 
-    if (source === "body") {
-      req.body = result.data;
-    } else if (source === "query") {
-      req.query = result.data as Request["query"];
+    if (source === "query") {
+      Object.defineProperty(req, "query", {
+        value: result.data,
+        writable: true,
+        configurable: true,
+      });
     } else {
-      req.params = result.data as Request["params"];
+      req[source] = result.data;
     }
 
     next();

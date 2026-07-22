@@ -11,6 +11,5 @@ router.use("/auth", authRouter);
 router.use("/users", userRouter)
 router.use("/leads", leadsRouter)
 router.use("/opportunities", opportunitiesRouter)
-router.use("/site-surveys", siteSurveyRouter)
 
 export default router;
