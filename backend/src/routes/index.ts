@@ -7,6 +7,9 @@ import quotationsRouter from "../modules/quotations/quotations.routes"
 import productsRouter from "../modules/product/product.routes"
 import installationRouter from "../modules/installation/installation.routes";
 import contactsRouter from "../modules/contact/contacts.routes";
+import roleRouter from "../modules/role/role.routes";
+import taskRouter from "../modules/task/task.routes";
+import permissionRouter from "../modules/permission/permission.routes";
 
 const router = Router();
 
@@ -18,5 +21,8 @@ router.use("/quotations", quotationsRouter);
 router.use("/products", productsRouter)
 router.use("/:opportunityId/installation", installationRouter);
 router.use("/contacts", contactsRouter);
+router.use("/roles", roleRouter);
+router.use("/opportunities/:opportunityId/tasks", taskRouter);
+router.use("/permissions", permissionRouter);
 
 export default router;

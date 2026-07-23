@@ -1,7 +1,7 @@
 export const MODULES = [
   "organization", "user", "contact", "lead", "opportunity",
   "quotation", "product", "category", "manufacturer",
-  "installation", "warranty", "amc", "service-request","address"
+  "installation", "warranty", "amc", "service-request","address","role","task"
 ] as const;
 
 export const ACTIONS = [
