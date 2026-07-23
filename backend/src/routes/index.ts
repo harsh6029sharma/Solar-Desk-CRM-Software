@@ -6,6 +6,7 @@ import opportunitiesRouter from "../modules/opportunities/opportunities.routes"
 import quotationsRouter from "../modules/quotations/quotations.routes"
 import productsRouter from "../modules/product/product.routes"
 import installationRouter from "../modules/installation/installation.routes";
+import contactsRouter from "../modules/contact/contacts.routes";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/opportunities", opportunitiesRouter)
 router.use("/quotations", quotationsRouter);
 router.use("/products", productsRouter)
 router.use("/:opportunityId/installation", installationRouter);
+router.use("/contacts", contactsRouter);
 
 export default router;
