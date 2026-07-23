@@ -7,6 +7,9 @@ import { seedRolePermissions } from "./seeds/rolePermission.seed";
 import { seedUser } from "./seeds/user.seed";
 import { seedUserRole } from "./seeds/userRole.seed";
 import { seedContact } from "./seeds/seed.contact";
+import { seedCategories } from "./seeds/category.seed";
+import { seedManufacturers } from "./seeds/manufacturer.seed";
+import { seedProducts } from "./seeds/product.seed";
 
 async function main() {
   await seedOrganization();
@@ -22,6 +25,12 @@ async function main() {
   await seedUserRole();
 
   await seedContact()
+
+  await seedCategories()
+
+  await seedManufacturers()
+
+  await seedProducts()
 }
 
 main()
