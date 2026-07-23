@@ -1,4 +1,3 @@
-// app.ts
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import appRouter from './routes/index'

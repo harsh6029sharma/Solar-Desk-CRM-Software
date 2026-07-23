@@ -11,6 +11,7 @@ import {
   opportunityIdParamSchema,
 } from "./opportunities.validation";
 import * as opportunityController from "./opportunities.controller";
+import installationRouter from "../installation/installation.routes";
 
 const router = Router();
 
@@ -61,5 +62,7 @@ router.delete(
 );
 
 router.use("/:opportunityId/survey", siteSurveyRouter);
+
+router.use("/:opportunityId/installation", installationRouter);
 
 export default router;

@@ -9,31 +9,37 @@ import {
   updateInstallationStatusSchema,
 } from "./installation.validation";
 import * as installationController from "./installation.controller";
+import amcRouter from "../amc/amc.routes";
 
-export const installationRouter = Router({ mergeParams: true });
+const router = Router()
 
-installationRouter.use(authenticate);
-installationRouter.use(validate(opportunityIdParamSchema, "params"));
+router.use(authenticate);
+router.use(validate(opportunityIdParamSchema, "params"));
 
-installationRouter.post(
+router.post(
   "/",
   authorize("installation:create"),
   validate(createInstallationSchema, "body"),
   installationController.createInstallation
 );
 
-installationRouter.get("/", authorize("installation:read"), installationController.getInstallation);
+router.get("/", authorize("installation:read"), installationController.getInstallation);
 
-installationRouter.patch(
+router.patch(
   "/",
   authorize("installation:update"),
   validate(updateInstallationSchema, "body"),
   installationController.updateInstallation
 );
 
-installationRouter.patch(
+router.patch(
   "/status",
   authorize("installation:update"),
   validate(updateInstallationStatusSchema, "body"),
   installationController.updateInstallationStatus
 );
+
+// nested route
+router.use("/amcs", amcRouter);
+
+export default router
