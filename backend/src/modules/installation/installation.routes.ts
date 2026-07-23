@@ -10,6 +10,7 @@ import {
 } from "./installation.validation";
 import * as installationController from "./installation.controller";
 import amcRouter from "../amc/amc.routes";
+import serviceRequestRouter from "../service-request/service-request.routes";
 
 const router = Router()
 
@@ -41,5 +42,7 @@ router.patch(
 
 // nested route
 router.use("/amcs", amcRouter);
+
+router.use("/service-requests", serviceRequestRouter);
 
 export default router
