@@ -1,10 +1,12 @@
-export interface JwtAccessPayload {
-  userId: string;
-  orgId: string;
-  roles: string[];
-  permissions: string[];
-}
+export type JwtAccessPayload = {
+    userId: string;
+    orgId: string;
+    roles: string[];
+    permissions: string[];
+    jti: string;
+};
 
-export interface JwtRefreshPayload {
-  userId: string;
-}
+export type JwtRefreshPayload = {
+    userId: string;
+    jti: string;
+};

@@ -10,6 +10,7 @@ import contactsRouter from "../modules/contact/contacts.routes";
 import roleRouter from "../modules/role/role.routes";
 import taskRouter from "../modules/task/task.routes";
 import permissionRouter from "../modules/permission/permission.routes";
+import organizationRouter from "../modules/organization/organization.routes";
 
 const router = Router();
 
@@ -24,5 +25,6 @@ router.use("/contacts", contactsRouter);
 router.use("/roles", roleRouter);
 router.use("/opportunities/:opportunityId/tasks", taskRouter);
 router.use("/permissions", permissionRouter);
+router.use("/organizations", organizationRouter);
 
 export default router;

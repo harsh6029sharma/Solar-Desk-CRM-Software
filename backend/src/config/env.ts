@@ -22,4 +22,7 @@ export const env = {
 
     JWT_REFRESH_EXPIRES_IN:
         process.env.JWT_REFRESH_EXPIRES_IN!,
+    
+    REDIS_URL:
+        process.env.REDIS_URL!
 };
