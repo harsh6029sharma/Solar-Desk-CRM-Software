@@ -23,6 +23,7 @@ const assertNoDuplicate = async (
 };
 
 export const createContact = async (organizationId: string, data: CreateContactInput) => {
+  
   await assertNoDuplicate(organizationId, data.phone, data.email);
 
   return prisma.contact.create({

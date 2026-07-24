@@ -9,7 +9,9 @@ import type {
 import asyncHandler from "../../utils/asyncHandler";
 
 export const createInstallation = asyncHandler(async (req: Request, res: Response) => {
+
   const { opportunityId } = req.params as unknown as { opportunityId: string };
+  
   const installation = await installationService.createInstallation(
     opportunityId,
     req.user!.orgId,
