@@ -24,5 +24,11 @@ export const env = {
         process.env.JWT_REFRESH_EXPIRES_IN!,
     
     REDIS_URL:
-        process.env.REDIS_URL!
+        process.env.REDIS_URL!,
+
+    GMAIL_USER: 
+        process.env.GMAIL_USER ?? "",
+
+    GMAIL_APP_PASSWORD:
+        process.env.GMAIL_APP_PASSWORD ?? ""
 };
