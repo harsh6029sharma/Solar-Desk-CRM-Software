@@ -13,7 +13,7 @@ import {
 import * as opportunityController from "./opportunities.controller";
 import installationRouter from "../installation/installation.routes";
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router.use(authenticate);
 

@@ -20,7 +20,7 @@ router.use("/leads", leadsRouter)
 router.use("/opportunities", opportunitiesRouter)
 router.use("/quotations", quotationsRouter);
 router.use("/products", productsRouter)
-router.use("/:opportunityId/installation", installationRouter);
+router.use("/opportunities/:opportunityId/installation", installationRouter);
 router.use("/contacts", contactsRouter);
 router.use("/roles", roleRouter);
 router.use("/opportunities/:opportunityId/tasks", taskRouter);

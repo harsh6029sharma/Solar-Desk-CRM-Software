@@ -35,3 +35,7 @@ export const generateRefreshToken = (payload: Omit<JwtRefreshPayload, "jti">) =>
 export const verifyRefreshToken = (token: string): JwtRefreshPayload => {
     return jwt.verify(token, env.JWT_REFRESH_SECRET) as JwtRefreshPayload;
 };
+
+export const verifyAccessToken = (token: string): JwtAccessPayload => {
+    return jwt.verify(token, env.JWT_ACCESS_SECRET) as JwtAccessPayload;
+};

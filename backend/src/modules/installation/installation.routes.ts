@@ -12,7 +12,7 @@ import * as installationController from "./installation.controller";
 import amcRouter from "../amc/amc.routes";
 import serviceRequestRouter from "../service-request/service-request.routes";
 
-const router = Router()
+const router = Router({ mergeParams: true });
 
 router.use(authenticate);
 router.use(validate(opportunityIdParamSchema, "params"));

@@ -11,7 +11,7 @@ import {
 import * as contactsController from "./contacts.controller";
 import addressRouter from "../address/address.routes";
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router.use(authenticate);
 

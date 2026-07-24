@@ -13,7 +13,7 @@ export const createInstallation = asyncHandler(async (req: Request, res: Respons
   const installation = await installationService.createInstallation(
     opportunityId,
     req.user!.orgId,
-    req.user!.orgId.slice(0, 6).toUpperCase(), // orgPrefix — replace with actual org prefix source if different
+    req.user!.orgId.slice(0, 6).toUpperCase(),
     req.body as CreateInstallationInput
   );
   res.status(201).json(new ApiResponse(201, installation, "Installation created"));
