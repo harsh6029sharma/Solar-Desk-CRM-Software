@@ -11,6 +11,7 @@ import {
 import * as installationController from "./installation.controller";
 import amcRouter from "../amc/amc.routes";
 import serviceRequestRouter from "../service-request/service-request.routes";
+import { warrantyRouter } from "../warranty/warranty.routes";
 
 const router = Router({ mergeParams: true });
 
@@ -45,4 +46,6 @@ router.use("/amcs", amcRouter);
 
 router.use("/service-requests", serviceRequestRouter);
 
-export default router
+router.use("/warranty", warrantyRouter);
+
+export default router;

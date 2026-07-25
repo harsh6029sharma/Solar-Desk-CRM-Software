@@ -35,7 +35,11 @@ export const createOpportunity = async (
         ...(input.remarks !== undefined && { remarks: input.remarks }),
     };
 
-    return prisma.opportunity.create({ data });
+    const opportunity = await prisma.opportunity.create({ data });
+    return {
+        ...opportunity,
+        opportunityNumber: `OPP-${opportunity.id.slice(-6).toUpperCase()}`,
+    };
 };
 
 type OpportunityFilters = {
@@ -62,6 +66,13 @@ export const getAllOpportunities = async (
     const [opportunities, total] = await Promise.all([
         prisma.opportunity.findMany({
             where,
+            include: {
+                lead: {
+                    include: {
+                        contact: true,
+                    },
+                },
+            },
             skip: (page - 1) * limit,
             take: limit,
             orderBy: { createdAt: "desc" },
@@ -69,7 +80,12 @@ export const getAllOpportunities = async (
         prisma.opportunity.count({ where }),
     ]);
 
-    return { opportunities, total, page, limit };
+    const mappedOpportunities = opportunities.map((opp) => ({
+        ...opp,
+        opportunityNumber: `OPP-${opp.id.slice(-6).toUpperCase()}`,
+    }));
+
+    return { opportunities: mappedOpportunities, total, page, limit };
 };
 
 export const getOpportunityById = async (
@@ -78,13 +94,23 @@ export const getOpportunityById = async (
 ) => {
     const opportunity = await prisma.opportunity.findFirst({
         where: { id, organizationId },
+        include: {
+            lead: {
+                include: {
+                    contact: true,
+                },
+            },
+        },
     });
 
     if (!opportunity) {
         throw new ApiError(404, "Opportunity not found");
     }
 
-    return opportunity;
+    return {
+        ...opportunity,
+        opportunityNumber: `OPP-${opportunity.id.slice(-6).toUpperCase()}`,
+    };
 };
 
 type UpdateOpportunityInput = {
@@ -110,7 +136,11 @@ export const updateOpportunity = async (
         ...(input.remarks !== undefined && { remarks: input.remarks }),
     };
 
-    return prisma.opportunity.update({ where: { id }, data });
+    const updated = await prisma.opportunity.update({ where: { id }, data });
+    return {
+        ...updated,
+        opportunityNumber: `OPP-${updated.id.slice(-6).toUpperCase()}`,
+    };
 };
 
 export const updateOpportunityStage = async (
@@ -126,7 +156,11 @@ export const updateOpportunityStage = async (
         ...(lostReason !== undefined && { lostReason }),
     };
 
-    return prisma.opportunity.update({ where: { id }, data });
+    const updated = await prisma.opportunity.update({ where: { id }, data });
+    return {
+        ...updated,
+        opportunityNumber: `OPP-${updated.id.slice(-6).toUpperCase()}`,
+    };
 };
 
 export const deactivateOpportunity = async (

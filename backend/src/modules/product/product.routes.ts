@@ -14,6 +14,8 @@ import {
   getProductByIdHandler,
   updateProductHandler,
   deactivateProductHandler,
+  getCategoriesHandler,
+  getManufacturersHandler,
 } from "./product.controller";
 
 const router = Router();
@@ -25,6 +27,18 @@ router.post(
   authorize("product:create"),
   validate(createProductSchema, "body"),
   createProductHandler
+);
+
+router.get(
+  "/categories",
+  authorize("product:read"),
+  getCategoriesHandler
+);
+
+router.get(
+  "/manufacturers",
+  authorize("product:read"),
+  getManufacturersHandler
 );
 
 router.get(

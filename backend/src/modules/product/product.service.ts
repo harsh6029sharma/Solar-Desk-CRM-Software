@@ -103,3 +103,17 @@ export const deactivateProduct = async (organizationId: string, id: string) => {
     data: { isActive: false },
   });
 };
+
+export const getAllCategories = async (organizationId: string) => {
+  return prisma.category.findMany({
+    where: { organizationId, isActive: true },
+    orderBy: { name: "asc" },
+  });
+};
+
+export const getAllManufacturers = async (organizationId: string) => {
+  return prisma.manufacturer.findMany({
+    where: { organizationId, isActive: true },
+    orderBy: { name: "asc" },
+  });
+};

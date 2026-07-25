@@ -37,3 +37,15 @@ export const deactivateProductHandler = asyncHandler(async (req: Request, res: R
   const product = await productService.deactivateProduct(organizationId, id);
   res.status(200).json(new ApiResponse(200, product, "Product deactivated"));
 });
+
+export const getCategoriesHandler = asyncHandler(async (req: Request, res: Response) => {
+  const organizationId = req.user!.orgId;
+  const categories = await productService.getAllCategories(organizationId);
+  res.status(200).json(new ApiResponse(200, categories, "Categories fetched"));
+});
+
+export const getManufacturersHandler = asyncHandler(async (req: Request, res: Response) => {
+  const organizationId = req.user!.orgId;
+  const manufacturers = await productService.getAllManufacturers(organizationId);
+  res.status(200).json(new ApiResponse(200, manufacturers, "Manufacturers fetched"));
+});
