@@ -8,7 +8,7 @@ import { notFoundMiddleware } from './middlewares/notfound.middleware'
 const app = express()
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:38127',
   credentials: true
 }))
 app.use(express.json({ limit: "10kb" }))
