@@ -1,4 +1,4 @@
-import { ServiceRequestStatus } from "../../../generated/prisma/enums";
+import { ServiceRequestStatus } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ApiError } from "../../utils/ApiError";
 import type { CreateServiceRequestInput, UpdateServiceRequestInput } from "./service-request.validation";

@@ -1,4 +1,4 @@
-import { InstallationStatus } from "../../../generated/prisma/enums";
+import { InstallationStatus } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ApiError } from "../../utils/ApiError";
 import type { CreateInstallationInput, UpdateInstallationInput } from "./installation.validation";

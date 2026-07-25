@@ -1,4 +1,4 @@
-import { WarrantyStatus } from "../../../generated/prisma/enums";
+import { WarrantyStatus } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ApiError } from "../../utils/ApiError";
 import type { CreateWarrantyInput, UpdateWarrantyInput } from "./warranty.validation";

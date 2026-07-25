@@ -1,4 +1,4 @@
-import { AmcStatus } from "../../../generated/prisma/enums";
+import { AmcStatus } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ApiError } from "../../utils/ApiError";
 import type { CreateAmcInput, UpdateAmcInput } from "./amc.validation";
