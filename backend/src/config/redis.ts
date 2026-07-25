@@ -4,6 +4,7 @@ import { env } from "./env";
 export const redisClient = new Redis(env.REDIS_URL, {
   maxRetriesPerRequest: null,
   enableReadyCheck: false,
+  tls:{},
 });
 
 redisClient.on("connect", () => console.log("Redis connected"));

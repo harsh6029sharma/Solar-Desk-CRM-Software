@@ -6,6 +6,7 @@ import { env } from "./env";
 export const bullConnection = new Redis(env.REDIS_URL, {
   maxRetriesPerRequest: null,
   enableReadyCheck: false,
+  tls:{},
 });
 
 export const amcReminderQueue = new Queue("amc-reminder", {
