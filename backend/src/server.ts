@@ -1,7 +1,6 @@
 import app from './app'
 import "./workers/amc-reminder.worker";
 import { scheduleAmcReminderJob } from './config/queue'
-import appRouter from './routes/index'
 
 const port = process.env.PORT || 7000
 

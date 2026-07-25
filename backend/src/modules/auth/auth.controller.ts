@@ -9,11 +9,7 @@ import {
 import asyncHandler from "../../utils/asyncHandler";
 import { decodeToken } from "./auth.utils";
 
-const cookieOptions = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "strict" as const,
-};
+const cookieOptions = { httpOnly: true, secure: true, sameSite: "none" } as const;
 
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
