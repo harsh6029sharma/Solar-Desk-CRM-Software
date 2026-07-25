@@ -1,4 +1,4 @@
-# Solar CRM
+# Solar Desk CRM
 
 A full-stack CRM application for managing the complete solar sales and installation lifecycle. This application helps organizations manage customers, leads, quotations, installations, warranties, and after-sales service from a single platform.
 
@@ -50,7 +50,7 @@ A full-stack CRM application for managing the complete solar sales and installat
 ## Project Structure
 
 ```text
-solar-crm/
+solar-desk-crm/
 ├── backend/
 │   ├── prisma/
 │   │   ├── constants/             # Seed data and static parameters
