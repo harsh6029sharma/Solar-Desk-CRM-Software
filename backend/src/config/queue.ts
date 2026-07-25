@@ -4,7 +4,8 @@ import Redis from "ioredis";
 import { env } from "./env";
 
 export const bullConnection = new Redis(env.REDIS_URL, {
-    maxRetriesPerRequest: null,
+  maxRetriesPerRequest: null,
+  enableReadyCheck: false,
 });
 
 export const amcReminderQueue = new Queue("amc-reminder", {
