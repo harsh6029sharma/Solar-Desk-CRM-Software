@@ -8,7 +8,7 @@ export const createSiteSurveySchema = z.object({
   shadowAnalysis: z.string().min(1).optional(),
   latitude: z.number().min(-90).max(90).optional(),
   longitude: z.number().min(-180).max(180).optional(),
-  surveyPhotosUrl: z.array(z.string().url()).optional(),
+  surveyPhotosUrl: z.array(z.url()).optional(),
 });
 
 export const updateSiteSurveySchema = createSiteSurveySchema;
